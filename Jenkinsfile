@@ -3,8 +3,8 @@ pipeline {
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
     } 
     environment {
-        AWS_ACCESS_KEY_ID     = 'AKIA6ODU5KEL63VXQNOL'    
-        AWS_SECRET_ACCESS_KEY = 'i+5Fc5eo3ThVFrBUV/8PF18GKxuhDt3zstsEE0dV' 
+        AWS_ACCESS_KEY_ID     = 'AKIA6ODU5KEL63VXQNOL'    // Your AWS Access Key ID
+        AWS_SECRET_ACCESS_KEY = 'i+5Fc5eo3ThVFrBUV/8PF18GKxuhDt3zstsEE0dV'  // Your AWS Secret Access Key
     }
 
     agent any
@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     dir("terraform") {
-                        git "https://github.com/anky2509/terraform-jerkins-devops.git"
+                        git branch: 'main', url: 'https://github.com/anky2509/terraform-jerkins-devops.git'
                     }
                 }
             }
